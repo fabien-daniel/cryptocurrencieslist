@@ -19,6 +19,7 @@ export default {
     };
   },
   methods: {
+    /* eslint-disable no-console */
     getCrypto() {
       fetch("https://api.coingecko.com/api/v3/coins/list")
         .then(data => {
