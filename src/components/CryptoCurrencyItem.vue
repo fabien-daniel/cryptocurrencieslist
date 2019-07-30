@@ -1,9 +1,11 @@
 <template>
-<span>
-  <li
-    @click="getCrypto(cryptocurrency)">{{cryptocurrency.id}} | {{cryptocurrency.symbol}} | {{cryptocurrency.name}} | </li>
-    <h2 v-if="cryptovalue">{{cryptovalue | currency}}</h2> <h2><img :src="cryptoimg" v-if="cryptoimg" /></h2>
-</span>
+  <span>
+    <li @click="getCrypto(cryptocurrency)">{{cryptocurrency.name}} ({{cryptocurrency.symbol}})</li>
+    <h2 v-if="cryptovalue">{{cryptovalue | currency}}</h2>
+    <h2>
+      <img :src="cryptoimg" v-if="cryptoimg" />
+    </h2>
+  </span>
 </template>
 
 <script>
@@ -15,7 +17,7 @@ export default {
   data() {
     return {
       cryptovalue: "",
-      cryptoimg:""
+      cryptoimg: ""
     };
   },
   methods: {
@@ -35,9 +37,12 @@ export default {
     }
   },
   filters: {
-    currency: (value) => {
-      return `${value} €`
-    }, 
+    currency: value => {
+      return `${value} €`;
+    }
+  },
+  mounted() {
+    this.getCrypto(this.cryptocurrency);
   }
 };
 </script>

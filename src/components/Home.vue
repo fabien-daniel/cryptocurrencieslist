@@ -2,7 +2,7 @@
   <div>
     <h1>Liste des cryptos</h1>
     <button @click="getCrypto">Get crypto</button>
-    <CryptoCurrenciesList :cryptocurrencies="listCrypto"/>
+    <CryptoCurrenciesList :cryptocurrencies="listCrypto" />
   </div>
 </template>
 
@@ -28,10 +28,23 @@ export default {
           throw "Erreur durant le fetch";
         })
         .then(user => {
-          this.listCrypto = user.slice(0,5); 
+          this.listCrypto = user.slice(0, 5);
         })
         .catch(err => alert(err));
     }
+  },
+  created() {
+    console.log("creation ok.................");
+  },
+  mounted() {
+    this.getCrypto();
+    console.log("chargement ok.................");
+  },
+  updated() {
+    console.log("maj ok.................");
+  },
+  destroyed() {
+    console.log("destruction ok.................");
   }
 };
 </script>
