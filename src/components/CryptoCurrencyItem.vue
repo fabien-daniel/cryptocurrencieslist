@@ -1,7 +1,9 @@
 <template>
+<span>
   <li
-    @click="getCrypto(cryptocurrency)">{{cryptocurrency.id}} | {{cryptocurrency.symbol}} | {{cryptocurrency.name}} | <h2 v-if="cryptovalue">{{cryptovalue | currency}} <img :src="cryptoimg" v-if="cryptoimg" /></h2></li>
-  
+    @click="getCrypto(cryptocurrency)">{{cryptocurrency.id}} | {{cryptocurrency.symbol}} | {{cryptocurrency.name}} | </li>
+    <h2 v-if="cryptovalue">{{cryptovalue | currency}}</h2> <h2><img :src="cryptoimg" v-if="cryptoimg" /></h2>
+</span>
 </template>
 
 <script>
