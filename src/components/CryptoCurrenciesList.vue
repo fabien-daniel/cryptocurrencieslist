@@ -1,7 +1,7 @@
 <template>
   <div>
-    <ul v-for="cryptocurrency of cryptocurrencies" :key="cryptocurrency.id">
-      <CryptoCurrencyItem :cryptocurrency="cryptocurrency"/>
+    <ul >
+      <CryptoCurrencyItem v-for="cryptocurrency of cryptocurrencies" :key="cryptocurrency.id" :cryptocurrency="cryptocurrency"/>
     </ul>
   </div>
 </template>
