@@ -28,7 +28,7 @@ export default {
           throw "Erreur durant le fetch";
         })
         .then(user => {
-          this.listCrypto = user;
+          this.listCrypto = user.slice(0,5); 
         })
         .catch(err => alert(err));
     }
