@@ -1,7 +1,7 @@
 <template>
   <li
-    @click="getCrypto(cryptocurrency)"
-  >{{cryptocurrency.id}} | {{cryptocurrency.symbol}} | {{cryptocurrency.name}} | {{cryptovalue | currency}}</li>
+    @click="getCrypto(cryptocurrency)">{{cryptocurrency.id}} | {{cryptocurrency.symbol}} | {{cryptocurrency.name}} | <h2 v-if="cryptovalue">{{cryptovalue | currency}} <img :src="cryptoimg" v-if="cryptoimg" /></h2></li>
+  
 </template>
 
 <script>
@@ -12,7 +12,8 @@ export default {
   },
   data() {
     return {
-      cryptovalue: 0
+      cryptovalue: "",
+      cryptoimg:""
     };
   },
   methods: {
@@ -26,6 +27,7 @@ export default {
         })
         .then(user => {
           this.cryptovalue = user.market_data.current_price.eur;
+          this.cryptoimg = user.image.large;
         })
         .catch(err => alert(err));
     }
