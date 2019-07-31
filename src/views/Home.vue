@@ -2,6 +2,7 @@
   <div>
     <h1>Liste des cryptos</h1>
     <button @click="getCrypto">Get crypto</button>
+
     <CryptoCurrenciesList :cryptocurrencies="listCrypto" />
   </div>
 </template>
@@ -12,6 +13,9 @@ export default {
   name: "Home",
   components: {
     CryptoCurrenciesList
+  },
+  computed: {
+    
   },
   data() {
     return {

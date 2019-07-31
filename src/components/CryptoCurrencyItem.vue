@@ -1,9 +1,14 @@
 <template>
   <span>
-    <li @click="getCrypto(cryptocurrency)">{{cryptocurrency.name}} ({{cryptocurrency.symbol}})</li>
-    <h2 v-if="cryptovalue">{{cryptovalue | currency}}</h2>
+    <li @click="getCrypto(cryptocurrency)">
+      <h1>{{cryptocurrency.name}} ({{cryptocurrency.symbol}})</h1>
+      <span v-if="cryptovalue">{{cryptovalue | currency}}</span>
+      <span>{{$store.getters.getName}}</span>
+    </li>
     <h2>
-      <router-link :to="getCurrencyUrl(cryptocurrency)"><img :src="cryptoimg" v-if="cryptoimg" /></router-link>
+      <router-link :to="getCurrencyUrl(cryptocurrency)">
+        <img :src="cryptoimg" v-if="cryptoimg" />
+      </router-link>
     </h2>
   </span>
 </template>
@@ -31,12 +36,12 @@ export default {
         })
         .then(user => {
           this.cryptovalue = user.market_data.current_price.eur;
-          this.cryptoimg = user.image.large;
+          this.cryptoimg = user.image.small;
         })
         .catch(err => alert(err));
     },
-    getCurrencyUrl(crypto){
-      return "/currency/"+crypto.id;
+    getCurrencyUrl(crypto) {
+      return "/currency/" + crypto.id;
     }
   },
   filters: {

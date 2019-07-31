@@ -1,5 +1,5 @@
 <template>
-  <h1>Détail de {{cryptocurrency.name}}</h1>
+  <h1>Détail de {{cryptocurrency.name}} ({{cryptocurrency.symbol}})</h1>
 </template>
 
 <script>
