@@ -3,7 +3,7 @@
     <li @click="getCrypto(cryptocurrency)">{{cryptocurrency.name}} ({{cryptocurrency.symbol}})</li>
     <h2 v-if="cryptovalue">{{cryptovalue | currency}}</h2>
     <h2>
-      <img :src="cryptoimg" v-if="cryptoimg" />
+      <router-link :to="getCurrencyUrl(cryptocurrency)"><img :src="cryptoimg" v-if="cryptoimg" /></router-link>
     </h2>
   </span>
 </template>
@@ -34,6 +34,9 @@ export default {
           this.cryptoimg = user.image.large;
         })
         .catch(err => alert(err));
+    },
+    getCurrencyUrl(crypto){
+      return "/currency/"+crypto.id;
     }
   },
   filters: {
