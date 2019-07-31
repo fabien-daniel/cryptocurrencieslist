@@ -3,6 +3,7 @@
     <li @click="getCrypto(cryptocurrency)">
       <h1>{{cryptocurrency.name}} ({{cryptocurrency.symbol}})</h1>
       <span v-if="cryptovalue">{{cryptovalue | currency}}</span>
+      <br/>
       <span>{{$store.getters.getName}}</span>
     </li>
     <h2>

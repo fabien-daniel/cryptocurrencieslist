@@ -2,6 +2,7 @@
   <div>
     <h1>Liste des cryptos</h1>
     <button @click="getCrypto">Get crypto</button>
+    <input type="text" @input="changeName" />
 
     <CryptoCurrenciesList :cryptocurrencies="listCrypto" />
   </div>
@@ -14,9 +15,7 @@ export default {
   components: {
     CryptoCurrenciesList
   },
-  computed: {
-    
-  },
+  computed: {},
   data() {
     return {
       listCrypto: []
@@ -36,6 +35,9 @@ export default {
           this.listCrypto = user.slice(0, 5);
         })
         .catch(err => alert(err));
+    },
+    changeName(event) {
+      this.$store.commit('setName', event.target.value)
     }
   },
   created() {

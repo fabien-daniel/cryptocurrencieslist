@@ -9,5 +9,11 @@ export const store = new Vuex.Store({
     },
     getters: {
         getName: state => state.name,
+    },
+    mutations: {
+        setName(state, pseudo) {
+            state.name = pseudo
+        }
+
     }
 })
